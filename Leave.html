@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Management</title>
+    <style>
+       body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            filter: blur(5px);
+        }
+
+        .background-image {
+            width: 100%;
+            height: 100%;
+            background-image: url('Pixel_Working_03.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #21262d;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 20px;
+            color: #fff;
+            text-decoration: none;
+      }
+
+        .logo-image {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+      }
+
+        .logout-btn {
+            background-color: #fff;
+            color: #333;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-right: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 40px;
+            background-color: #1a1c2b;
+            width: 150px;
+            padding: 20px;
+            height: 100%;
+        }
+
+        .sidebar i {
+            margin-right: 8px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #faf9f9;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #d93634;
+        }
+
+        .leave-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 170px;
+            margin-top: 50px;
+        }
+
+        .add-leave-request-form,
+        .pending-leave-requests {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px;
+        }
+
+        .leave-request-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .leave-request-list li {
+            margin-bottom: 10px;
+            color: #4c4c4c;
+            display: flex;
+            align-items: center;
+        }
+
+        .leave-request-list li span {
+            flex: 1;
+        }
+
+        .leave-request-list li button {
+            background-color: #d93634;
+            color: #fff;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .add-leave-request-form {
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-left: 150px;
+            margin-right: 20px;
+            margin-bottom: 200px;
+        }
+
+        .add-leave-request-form h2 {
+            color: #d93634;
+        }
+
+        .add-leave-request-form form {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .add-leave-request-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .add-leave-request-form input[type="date"],
+        .add-leave-request-form input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .add-leave-request-form button {
+            background-color: #d93634;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="background-image"></div>
+    </div>
+    <header>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="ZakApps Logo" class="logo-image">ZakApps</a>
+        <button class="logout-btn" id="logout-btn">Logout</button>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Employee.html">Employee</a></li>
+                <li><a href="attendance.html">Attendance</a></li>
+                <li><a href="Leave.html">Leave</a></li>
+                <li><a href="#">Holidays</a></li>
+                <li><a href="#">Request</a></li>
+            </ul>
+        </div>
+
+        <div class="leave-content">
+        <div class="add-leave-request-form">
+            <h2>Apply for Leave</h2>
+            <form>
+                <label for="leaveStartDate">Start Date:</label>
+                <input type="date" id="leaveStartDate">
+
+                <label for="leaveEndDate">End Date:</label>
+                <input type="date" id="leaveEndDate">
+
+                <label for="leaveReason">Reason:</label>
+                <input type="text" id="leaveReason" placeholder="Enter reason for leave">
+
+                <button type="submit">Apply</button>
+            </form>
+        </div>
+       
+        <div class="pending-leave-requests">
+            <h2>Pending Leave Requests</h2>
+            <ul class="leave-request-list">
+                <li><span>John Doe - July 31 to August 5 (Vacation)</span><button>Approve</button><button>Reject</button></li>
+                <li><span>Jane Smith - August 15 to August 20 (Sick Leave)</span><button>Approve</button><button>Reject</button></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
